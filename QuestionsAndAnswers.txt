@@ -1,0 +1,40 @@
+Grid Developer Test
+
+--Assumpitons
+
+-Input will be in the form x,y where x and y are numbers
+-Seed data were Events and Tickets
+-Events are randomly generated
+-There can be 100 to 200 events in the world when the program starts
+-Tickets are randomly generated for each event
+-Each event can have 0 to 11 tickets (This can be easily increased later, but I felt this was enough for now)
+
+--How might you change your program if you needed to support multiple events at the same location?
+
+-Use a 2-D array but instead of each location holding an event, each location will hold an ArrayList of events.
+ Everytime the program is ran, a random coordiante will be picked which will add to an ArrayList of Events instead of,
+ inserting a single. I chose an ArrayList because ArrayLists can grow dynamically, this means only space is allocated where needed
+ which means that you dont have to worry about size priror to adding events. Whereas with a fixed array, you are limited
+ to the size you have reserved for yourself
+
+-When printing out nearby events, the 5 closest locations will have their ArrayLists retrieved and each ArrayList can
+ be iterated through using a for-each loop to print results
+
+----How would you change your program if you were working with a much larger world size?
+
+---When creating the program, even though the world size is relatively small, I kept in mind how the code written would
+   scale if the world was larger since computation time is a big factor; so here are some things I have done:
+
+--Constant time insertions of Events into the grid
+
+--Kept a record of all event locations in a list and this happens when events are inserted, this is so when searching
+  for events that are nearby, instead of having to search for events in the grid which would be quadratic time, you
+  can look through just a list of event locations and set their distances away in linear time.
+
+---Here are some other changes I would make:
+
+-Increase the range of which Event tickets ar randomly generated, so more events can populate the map
+
+-Use a HashMap that stores event location coordinates as the key and the event as the value instead of,
+ having to index into the grid using a list of values, I believe this would be a less verbose method of getting
+ events.

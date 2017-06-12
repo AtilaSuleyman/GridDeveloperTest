@@ -1,0 +1,7 @@
+---Instructions of running the program
+
+--The program has been written in Java
+
+-In command prompt, go to the directory where the source code is "GridDeveloperTest"
+
+-type "java EventLocator" (without the speech marks), the code has been pre-compiled so this will run providing your system has java installed
